@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical Text Causal Discovery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <p class="tag">NLP · Causal Discovery · Clinical Text</p>
+    <h1>Recovering Causal Symptom–Disease Graphs from Clinical Notes</h1>
+    <p>
+      A visual project summary comparing tabular, unsupervised, weakly supervised,
+      and supervised text workflows for causal graph discovery.
+    </p>
+    <img src="assets/images/hero-workflow.png" alt="Overview workflow from clinical notes to causal DAG" />
+  </header>
+
+  <main>
+    <section>
+      <h2>Why this project?</h2>
+      <p>
+        In real clinical settings, symptom information is often written in free-text notes
+        instead of clean structured fields. This project explores whether those notes can
+        help recover causal symptom–disease graphs when structured symptom labels are missing.
+      </p>
+    </section>
+
+    <section>
+      <h2>Dataset and task</h2>
+      <p>
+        The project uses the SimSUM dataset, which contains tabular variables,
+        clinical notes, and a known gold-standard causal DAG for evaluation.
+      </p>
+      <img src="assets/images/gold-dag-simplified.png" alt="Simplified gold-standard causal DAG" />
+    </section>
+
+    <section>
+      <h2>Experiment design: a supervision ladder</h2>
+      <div class="cards">
+        <article>
+          <h3>G-TAB</h3>
+          <p>Uses full structured symptom variables. This is the upper-bound setting.</p>
+        </article>
+        <article>
+          <h3>G-US</h3>
+          <p>Uses unsupervised clustering to induce symptom-related variables from text.</p>
+        </article>
+        <article>
+          <h3>G-WS</h3>
+          <p>Uses weak symptom anchors to guide cluster selection without patient-level labels.</p>
+        </article>
+        <article>
+          <h3>G-FS</h3>
+          <p>Uses supervised symptom classification with different label fractions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <img src="assets/images/shd-comparison.png" alt="SHD comparison across model variants" />
+      <p>
+        Weak supervision substantially improves over unsupervised clustering,
+        while partial supervised labels provide a strong label-efficiency trade-off.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key takeaway</h2>
+      <p>
+        Structured symptom variables remain the strongest signal, but lightweight
+        semantic guidance can make clinical text useful for causal graph discovery.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
